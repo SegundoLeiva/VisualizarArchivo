@@ -18,11 +18,16 @@ public class VisualizarArchivoController {
 
 	@RequestMapping(value = "/descargarSAP.htm", method = RequestMethod.GET)
 	public String descargarSAP(HttpServletRequest req,Model model,HttpSession sesion) throws IOException {
-		sesion.setAttribute("codigoArchivo", req.getParameter("codigoArchivo"));
-		CmisDownloadDocument ccde = new CmisDownloadDocument();
-		String archivo =  ccde.visualizarArchivo(req.getParameter("codigoArchivo"));		
-		model.addAttribute("nombreArchivo", archivo.split("[|]")[0]);
-		model.addAttribute("codigobase64", archivo.split("[|]")[1]);
+		try {
+			sesion.setAttribute("codigoArchivo", req.getParameter("codigoArchivo"));
+			CmisDownloadDocument ccde = new CmisDownloadDocument();
+			String archivo =  ccde.visualizarArchivo(req.getParameter("codigoArchivo"));		
+			model.addAttribute("nombreArchivo", archivo.split("[|]")[0]);
+			model.addAttribute("codigobase64", archivo.split("[|]")[1]);
+		} catch (Exception e) {
+			model.addAttribute("nombreArchivo", "");
+		}
+		
 		return "visualizarArchivo";
 	}
 	

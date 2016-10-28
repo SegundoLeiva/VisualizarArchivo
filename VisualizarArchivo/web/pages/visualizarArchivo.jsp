@@ -32,20 +32,26 @@
 		</div>
 
 		<div class="jumbotron">
-			<p class="lead">Nombre de Archivo: ${nombreArchivo}</p>		
-			<div>
-				<div class="btn-group">				
-					<button type="button" class="btn btn-lg btn-success dropdown-toggle" onclick="visualizarArchivo()">
-						Visualizar<span class=""></span>
-					</button>
-				</div>
-				<div class="btn-group">
-					<a id="btnDescargar" class="btn btn-lg btn-warning dropdown-toggle" href="<c:url value="descargarArchivo.htm"/>">
-						Descargar
-					</a>
-				</div>
-			</div>
-
+			<c:choose>
+				<c:when test="${empty nombreArchivo}">
+					<p class="lead">No se encontró ningún archivo</p>	
+				</c:when>
+				<c:otherwise>
+					<p class="lead">Nombre de Archivo: ${nombreArchivo}</p>		
+					<div>
+						<div class="btn-group">				
+							<button type="button" class="btn btn-lg btn-success dropdown-toggle" onclick="visualizarArchivo()">
+								Visualizar<span class=""></span>
+							</button>
+						</div>
+						<div class="btn-group">
+							<a id="btnDescargar" class="btn btn-lg btn-warning dropdown-toggle" href="<c:url value="descargarArchivo.htm"/>">
+								Descargar
+							</a>
+						</div>
+					</div>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
