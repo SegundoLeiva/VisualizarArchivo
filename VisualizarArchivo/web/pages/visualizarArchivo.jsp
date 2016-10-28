@@ -40,7 +40,7 @@
 					</button>
 				</div>
 				<div class="btn-group">
-					<a id="btnDescargar" class="btn btn-lg btn-warning dropdown-toggle" href="<c:url value="/descargarArchivo.htm"/>">
+					<a id="btnDescargar" class="btn btn-lg btn-warning dropdown-toggle" href="<c:url value="descargarArchivo.htm"/>">
 						Descargar
 					</a>
 				</div>

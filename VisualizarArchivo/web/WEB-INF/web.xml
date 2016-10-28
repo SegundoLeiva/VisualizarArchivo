@@ -11,7 +11,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>visualizarArchivo</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
