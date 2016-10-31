@@ -10,8 +10,6 @@ import org.apache.chemistry.opencmis.client.api.CmisObject;
 import org.apache.chemistry.opencmis.client.api.Document;
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.commons.data.ContentStream;
-import org.apache.chemistry.opencmis.commons.enums.Action;
-import org.apache.chemistry.opencmis.commons.exceptions.CmisUnauthorizedException;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.IOUtils;
 
