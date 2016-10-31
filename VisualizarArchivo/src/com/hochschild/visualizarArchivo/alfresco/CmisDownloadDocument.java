@@ -28,12 +28,6 @@ public class CmisDownloadDocument extends BaseOnPremExample {
 		Document templateDocument = (Document) session.getObjectByPath(documentPath);// Original
 
 		if (templateDocument != null) {
-
-			if (templateDocument.getAllowableActions().getAllowableActions().contains(Action.CAN_GET_CONTENT_STREAM) == false) {
-				throw new CmisUnauthorizedException(
-						"Current user does not have permission to get the content stream for "+ documentPath);
-			}
-
 			try {
 				response.setHeader("Content-Type", "application/octet-stream");
 				response.setHeader("Content-Disposition","attachment; filename=" + templateDocument.getName());
@@ -56,21 +50,15 @@ public class CmisDownloadDocument extends BaseOnPremExample {
 		Session session = getCmisSession();
 		CmisObject object = session.getObject(codigoArchivo);
 		byte[] buf = null;
-		String documentPath = "/Sites/hochschild-mining/documentLibrary/Logistica/Solped/"
-				+ object.getName();
+		String documentPath = "/Sites/hochschild-mining/documentLibrary/Logistica/Solped/"+ object.getName();
 
 		Document templateDocument = (Document) session.getObjectByPath(documentPath);// Original
 
 		if (templateDocument != null) {
-
 			InputStream input = null;
-
 			input = templateDocument.getContentStream().getStream();
-
 			buf = convertArrayByte(input);
-			// Close streams and handle exceptions
 			input.close();
-
 		}
 		return templateDocument.getName() + "|"	+ Base64.encodeBase64String(buf);
 	}
