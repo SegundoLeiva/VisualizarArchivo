@@ -80,7 +80,7 @@
 		var ext = $("#nombreArchivo").val().split(".")[1];
  		if(ext.toLowerCase()=="png" || ext.toLowerCase()=="jpg"){
  			$("#myModal").modal("show");
- 			$(".modal-body").append("<img src='data:image/"+ext+";base64,"+codigo64+"' />")
+ 			$(".modal-body").append("<img width='100%' src='data:image/"+ext+";base64,"+codigo64+"' />")
  		}else if(ext.toLowerCase()=="pdf"){
  			$("#myModal").modal("show");
  			$(".modal-body").append("<iframe width='100%' height='500px' src='data:application/pdf;base64,"+codigo64+"'></iframe>")
